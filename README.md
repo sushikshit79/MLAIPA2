@@ -33,7 +33,9 @@ The objective of this exercise is to provide an accurate and explanable car pric
 
 * Initial modeling using the full dataset resulted in poor predictive performance across all models, indicating data quality issues.
 * Filtering the dataset and removing records with excessive missing values significantly improved prediction accuracy.
-* Retaining high-missing columns with indicator flags did not materially improve model performance.
+* Retaining high-missing columns with indicator flags did not materially improve model performance.Below are model eval metrcics for full data and test data
+   * ![**Model Metrcis for Linear, Ridge and Lasso Regression model for full dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_full_data.csv)
+   * ![**Test dataset model metrcis for Linear, Ridge and Lasso Regression model for full dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/test_eval_metrics_full_data.csv)
 * Records containing missing values in critical fields were removed, resulting in approximately 73% of the original data being excluded to ensure data integrity.
 * Outlier treatment was applied to the price and odometer columns using lower and upper quartile thresholds to reduce noise and extreme value influence.
 * Logarithmic transformations were applied to the price and odometer columns to address skewness and stabilize variance.
@@ -84,8 +86,6 @@ Below are model metrcis with validation dataset for different approaches
 **Based on these observations, Ridge regression with encoded categorical features is selected as the final model.**
 
 #### Below are model metrcis with validation dataset for different approaches
-
-![**Test dataset model metrcis for Linear, Ridge and Lasso Regression model for full dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/test_eval_metrics_full_data.csv)
 
 ![**Test dataset model metrcis for Linear, Ridge and Lasso Regression model for treated dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/test_eval_metrics_encoded.csv)
 
