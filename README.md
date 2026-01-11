@@ -56,7 +56,7 @@ Below are model metrcis with validation dataset for different approaches
 
 ![**Model Metrcis for Linear, Ridge and Lasso Regression model for full dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_full_data.csv)
 
-![**Model Metrcis for Linear, Ridge and Lasso Regression model for treated dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_nulls_removed.csv)
+![**Model Metrcis for Linear, Ridge and Lasso Regression model for treated dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_encoded.csv))
 
 ![**Model Metrcis for Linear, Ridge and Lasso Regression model for numeric identifiers with ploynomial expansion**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_numeric_conv.csv)
 
