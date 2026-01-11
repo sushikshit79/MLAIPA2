@@ -1,0 +1,34 @@
+,Model/nTop_Models(150),MAE($),RMSE($),r2,Hyper Parameters,Feature Importance
+0,Linear Regression,7632.83,11011.14,0.16785237010089404,{'model__fit_intercept': False},"region          0.584388
+state           0.506536
+model           0.026117
+type            0.019994
+cylinders       0.014902
+condition       0.014732
+transmission    0.014725
+manufacturer    0.006886
+year            0.006805
+title_status    0.004476
+dtype: float64"
+1,Ridge Regression,7631.19,11009.03,0.16784064483281103,{'model__alpha': 0.1},"region          0.085444
+state           0.069388
+transmission    0.024228
+condition       0.015134
+type            0.014941
+cylinders       0.010916
+model           0.008206
+year            0.007594
+drive           0.004056
+manufacturer    0.003418
+dtype: float64"
+2,Lasso Regression,7366.69,10672.16,0.14950970152431042,{'model__alpha': 0.001},"region          0.085444
+state           0.069388
+transmission    0.024228
+condition       0.015134
+type            0.014941
+cylinders       0.010916
+model           0.008206
+year            0.007594
+drive           0.004056
+manufacturer    0.003418
+dtype: float64"
