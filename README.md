@@ -54,7 +54,9 @@ Two feature representation are tested
 #### Model metrics
 Below are model metrcis with validation dataset for different approaches
 
-Model Metrcis for Linear, Ridge and Lasso Regression model for full dataset 
+**Model Metrcis for Linear, Ridge and Lasso Regression model for full dataset**
 (https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_full_data.csv)
+
+[**Model Metrcis for Linear, Ridge and Lasso Regression model for treated dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_nulls_removed.csv)
 
 
