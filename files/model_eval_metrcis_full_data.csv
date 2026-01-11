@@ -10,18 +10,7 @@ type                   0.010240
 manufacturer           0.009789
 paint_color_missing    0.008100
 dtype: float64"
-1,Linear Regression,11002.24,15452.40,0.13974366990187959,{'model__fit_intercept': True},"region                 0.088710
-cylinders_missing      0.057299
-cylinders              0.044175
-state                  0.044074
-transmission           0.030317
-condition              0.021663
-model                  0.020823
-type                   0.010240
-manufacturer           0.009789
-paint_color_missing    0.008100
-dtype: float64"
-2,Ridge Regression,10982.09,15417.88,0.13989379587245587,{'model__alpha': 10},"region                 0.081448
+1,Ridge Regression,10982.09,15417.88,0.13989379587245587,{'model__alpha': 10},"region                 0.081448
 cylinders_missing      0.049643
 state                  0.037703
 cylinders              0.037467
@@ -32,7 +21,7 @@ type                   0.010247
 manufacturer           0.009606
 paint_color_missing    0.008116
 dtype: float64"
-3,Lasso Regression,10762.47,15078.55,0.12427544225317066,{'model__alpha': 0.001},"region                 0.041803
+2,Lasso Regression,10762.47,15078.55,0.12427544225317066,{'model__alpha': 0.001},"region                 0.041803
 transmission           0.033457
 state                  0.031490
 condition              0.023134
