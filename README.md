@@ -54,9 +54,84 @@ Two feature representation are tested
 #### Model metrics
 Below are model metrcis with validation dataset for different approaches
 
-**Model Metrcis for Linear, Ridge and Lasso Regression model for full dataset**
-(https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_full_data.csv)
+![**Model Metrcis for Linear, Ridge and Lasso Regression model for full dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_full_data.csv)
 
-[**Model Metrcis for Linear, Ridge and Lasso Regression model for treated dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_nulls_removed.csv)
+![**Model Metrcis for Linear, Ridge and Lasso Regression model for treated dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_nulls_removed.csv)
+
+![**Model Metrcis for Linear, Ridge and Lasso Regression model for numeric identifiers with ploynomial expansion**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/model_eval_metrcis_numeric_conv.csv)
+
+### Model Evaluation
+
+* Initial evaluation using the full dataset resulted in poor price prediction performance across all three models (Linear, Ridge, and Lasso), indicating data quality issues, particularly replacing missing values with unknown and adding columns gave higher prediction error
+* Filtering the dataset and removing records with excessive missing values significantly improved model performance, highlighting the importance of data preprocessing over model complexity.
+* When using the full dataset, alternative filtering strategies such as retaining high-missing columns with indicator flags did not materially improve performance, reinforcing the decision to remove incomplete records.
+* Model evaluation was conducted using Linear, Ridge, and Lasso regression with encoded categorical features, as well as with numerical identifiers derived from categorical variables.
+* In the numeric approach, polynomial feature expansion with degrees 2, 3, and 5 were tested. Increasing polynomial degree did not meaningfully affect MAE, RMSE, or R², indicating limited nonlinear signal in the numeric feature space. As a result, polynomial degree 2 was selected for consistency.
+* Models were evaluated using:
+    * Mean Absolute Error (MAE)
+    * Root Mean Squared Error (RMSE)
+    * R2 Score
+* Feature Importance Analysis
+    * Both encoded and numeric approaches identified **region** and **state** as the most influential features.
+    * Secondary features included model, type, condition, and transmission.
+    * Feature importance rankings were stable across modeling techniques.
+* While MAE and RMSE were comparable between encoded and numeric approaches, encoded models achieved substantially higher R**2, indicating superior ability to explain variance in vehicle prices.
+* Given the minimal difference in absolute error metrics and the meaningful difference in explanatory power, the encoded feature approach is selected, as it preserves categorical nuance and captures regional market variation that numeric conversion may suppress.
+* Within the encoded models, Ridge regression was selected over Linear and Lasso. Though Linear and Ridge showed similar performance, Ridge offers greater robustness and improved stability under potential future data shifts. Lasso underperformed in terms of R**2, indicating excessive regularization and reduced ability to capture variance.
+* Validation and test metrics were closely aligned, indicating good generalization and no evidence of overfitting.
+* Finally, despite extensive feature engineering and polynomial expansion, overall R2 values remained modest, indicating that model performance is primarily constrained by the available data rather than model selection.
+  
+**Based on these observations, Ridge regression with encoded categorical features is selected as the final model.**
+
+#### Below are model metrcis with validation dataset for different approaches
+
+![**Test dataset model metrcis for Linear, Ridge and Lasso Regression model for full dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/test_eval_metrics_full_data.csv)
+
+![**Test dataset model metrcis for Linear, Ridge and Lasso Regression model for treated dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/test_eval_metrics_encoded.csv)
+
+![**MTest dataset model metrcis for Linear, Ridge and Lasso Regression model for numeric identifiers with ploynomial expansion**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/test_eval_metrics_numeric_conv.csv)
+
+#### Below are permutation importance for Linear, Ridge and Lasso Regression model
+
+![**Permutation importance for Linear, Ridge and Lasso Regression model for treated dataset**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/perm_importance_encoded.csv)
+
+![**Permutation importance for Linear, Ridge and Lasso Regression model numeric identifiers with ploynomial expansion**](https://github.com/sushikshit79/MLAIPA2/blob/main/files/perm_importance_num_identifier.csv)
+
+## Used Car Pricing Analysis – Dealer Report
+
+## Summary of Findings
+
+This analysis was conducted to identify the key drivers of used car prices and to recommend a  pricing model that can help dealers fine tune inventory and regional pricing strategies. After evaluating multiple modeling approaches and feature representations, it was found that **geographic location is the strongest driver of price**, followed by vehicle configuration and condition. Among the models tested, 
+
+**Ridge Regression using encoded categorical features** provides the best balance of accuracy, stability, and interpretability and is recommended for practical use.
+
+## Key Findings for Dealers
+
+1. Location Drives Price More Than Any Other Factor
+All models and evaluation methods consistently show cased that region and state are the top drivers of price. Vehicle with same specification can command significantly different prices depdending on where there are sold.
+**Dealer Take Away: Pricing Startegy should region and state sepecific and not unfiorm.**
+
+2. Vehicle Atrributes
+After location, the next most importan attributes of a vehicle are
+    * Model
+    * Vehicle Type(SUV, Sedan, Truck etc)
+    * Condition
+    * Transmission
+Mileage and paint_color have a smaller impact over pricing once above factors are accounted for.
+**Dealer Take Away: Inventory decisions should priortise condition and configuration.**
+
+3. Data Quality Significantly impacted Pricing Accuracy
+Models trained on fill dataset performed poorly due to missing and incosistent data. Removing incomplete records helped in prediction accuracy.**Dealer Take Away: Maintaining clean and  structured data leads to better pricing recommendation decisions.**
+
+4. Business Implication based on the given data
+    * Regional inventory can be optimized based on location based sales
+    * Over investment in cosmetics of a vehicles may not lead to additional sales with limited rate of return on investment.
+    * Future improvements may come additional inputs like seasonality rather than employing complex models
+
+## Recommendation 
+To support accurate and consistent pricing decisions, adopt a Ridge regression model with encoded categorical features. This approach captures nuances/real-world behavior of vehicle pricing attributes while remaining interpretable and robust for dealer operations.
+
+
+
 
 
